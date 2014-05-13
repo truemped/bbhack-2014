@@ -4,8 +4,8 @@ Getting started
 
 Preparing your environment
 
-$ python bootstrap.py
-$ bin/buildout
+    $ python bootstrap.py
+    $ bin/buildout
 
 This will download all necessary dependencies (twython, pyzmq) and compile
 them.
