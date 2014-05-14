@@ -60,7 +60,7 @@ setup(
     entry_points={
         'console_scripts': [
             'streamer=bbhack.streamer:main',
-            'hashtag-logger=bbhack.example.main',
+            'hashtag-logger=bbhack.example:main',
         ]
     }
 )
