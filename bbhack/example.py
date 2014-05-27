@@ -43,8 +43,8 @@ def main():
 
     import argparse
     p = argparse.ArgumentParser()
-    p.add_argument('zmq_sub_string')
-    p.add_argument('channel')
+    p.add_argument('--zmq_sub_string', default='tcp://*:5556')
+    p.add_argument('--channel', default='tweet.stream')
 
     options = p.parse_args()
 
