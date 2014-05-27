@@ -31,7 +31,7 @@ LOG = logging.getLogger(__name__)
 
 class TweetStreamer(TwythonStreamer, BasePublisher):
     """Simple twitter streaming api client that publishes tweets to a ZeroMQ
-    socket. The tweets are published in the channel `tweet.streaming`."""
+    socket. The tweets are published in the channel `tweet.stream`."""
 
     def __init__(self, consumer_key, consumer_secret, access_token,
                  access_token_secret, zmq_pub_string):
