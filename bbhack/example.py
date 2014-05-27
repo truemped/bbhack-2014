@@ -30,7 +30,7 @@ LOG = logging.getLogger(__name__)
 class HashTagLogger(BaseListener):
 
     def __init__(self, zmq_sub_string, channel):
-        super(BaseListener, self).__init__(zmq_sub_string, channel)
+        super(HashTagLogger, self).__init__(zmq_sub_string, channel)
 
     def on_msg(self, msg):
         tweet = json.loads(msg)
