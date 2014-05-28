@@ -56,12 +56,11 @@ def main():
     """Start the Twitter streamer"""
 
     import argparse
-    p = argparse.ArgumentParser(
-        help='For Twitter credentials see https://apps.twitter.com/')
-    p.add_argument('consumer_key')
-    p.add_argument('consumer_secret')
-    p.add_argument('access_token')
-    p.add_argument('access_token_secret')
+    p = argparse.ArgumentParser()
+    p.add_argument('--consumer_key')
+    p.add_argument('--consumer_secret')
+    p.add_argument('--access_token')
+    p.add_argument('--access_token_secret')
     p.add_argument('--zmq_pub_string', default='tcp://*:5556')
     p.add_argument('--track', default='twitter')
 
