@@ -32,6 +32,8 @@ class HashTagLogger(BaseListener):
         super(HashTagLogger, self).__init__(zmq_sub_string, channel)
 
     def on_msg(self, tweet):
+        print(tweet)
+        return
         if 'entities' in tweet and 'hashtags' in tweet['entities']:
             tags = tweet['entities']['hashtags']
             for tag in tags:
@@ -48,6 +50,6 @@ def main():
 
     options = p.parse_args()
 
-    stream = HashTagLogger(options.zmq_pub_string, options.channel)
+    stream = HashTagLogger(options.zmq_sub_string, options.channel)
     # this call will block
     stream.start()
