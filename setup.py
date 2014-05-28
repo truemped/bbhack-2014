@@ -51,7 +51,8 @@ setup(
 
     install_requires=[
         'twython',
-        'pyzmq'
+        'pyzmq',
+        'delorean'
     ],
 
     tests_require=tests_require,
