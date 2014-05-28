@@ -19,7 +19,6 @@ from __future__ import (absolute_import, division, print_function,
                         with_statement)
 
 import logging
-import json
 
 from bbhack.base import BaseListener
 
@@ -30,10 +29,9 @@ LOG = logging.getLogger(__name__)
 class HashTagLogger(BaseListener):
 
     def __init__(self, zmq_sub_string, channel):
-        super(BaseListener, self).__init__(zmq_sub_string, channel)
+        super(HashTagLogger, self).__init__(zmq_sub_string, channel)
 
-    def on_msg(self, msg):
-        tweet = json.loads(msg)
+    def on_msg(self, tweet):
         if 'entities' in tweet and 'hashtags' in tweet['entities']:
             tags = tweet['entities']['hashtags']
             for tag in tags:
@@ -45,8 +43,8 @@ def main():
 
     import argparse
     p = argparse.ArgumentParser()
-    p.add_argument('zmq_sub_string')
-    p.add_argument('channel')
+    p.add_argument('--zmq_sub_string', default='tcp://*:5556')
+    p.add_argument('--channel', default='tweet.stream')
 
     options = p.parse_args()
 

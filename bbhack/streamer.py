@@ -31,7 +31,7 @@ LOG = logging.getLogger(__name__)
 
 class TweetStreamer(TwythonStreamer, BasePublisher):
     """Simple twitter streaming api client that publishes tweets to a ZeroMQ
-    socket. The tweets are published in the channel `tweet.streaming`."""
+    socket. The tweets are published in the channel `tweet.stream`."""
 
     def __init__(self, consumer_key, consumer_secret, access_token,
                  access_token_secret, zmq_pub_string):
@@ -56,13 +56,14 @@ def main():
     """Start the Twitter streamer"""
 
     import argparse
-    p = argparse.ArgumentParser()
+    p = argparse.ArgumentParser(
+        help='For Twitter credentials see https://apps.twitter.com/')
     p.add_argument('consumer_key')
     p.add_argument('consumer_secret')
     p.add_argument('access_token')
     p.add_argument('access_token_secret')
-    p.add_argument('zmq_pub_string')
-    p.add_argument('track')
+    p.add_argument('--zmq_pub_string', default='tcp://*:5556')
+    p.add_argument('--track', default='twitter')
 
     options = p.parse_args()
 

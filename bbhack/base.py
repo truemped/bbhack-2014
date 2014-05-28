@@ -41,7 +41,7 @@ class BaseListener(object):
         while True:
             (_, tweet_json) = self._subscriber.recv_multipart()
             try:
-                self.on_tweet(json.loads(tweet_json))
+                self.on_msg(json.loads(tweet_json))
             except Exception:
                 traceback.print_exc()
                 raise
